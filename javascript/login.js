@@ -1,21 +1,60 @@
-document.getElementById("login-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the form from submitting the traditional way
+async function handleLogin() {
+    event.preventDefault(); // Prevent default form submission
 
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    // Simple validation (You can expand this for more complex validations)
-    if (email === "" || password === "") {
-        alert("Please fill in both fields.");
+    if (!validateForm(email, password)) {
         return;
     }
 
-    // Dummy check for email and password (You would normally do this on the server-side)
-    if (email === "admin@example.com" && password === "password") {
-        alert("Login successful!");
-        // Redirect to the dashboard or other page
-        window.location.href = "pm-dashboard.html";
-    } else {
-        alert("Invalid email or password. Please try again.");
+    try {
+        // Fetch existing users
+        const response = await fetch('data/users.json'); // Replace with the actual path
+        const users = await response.json();
+
+        // Check if user exists and credentials are valid
+        const user = users.find(user => user.email === email && user.password === password);
+
+        if (user) {
+            alert("Login successful!");
+
+            // Redirect based on user role
+            if (user.role === "project-manager") {
+                window.location.href = "pm-dashboard.html";
+            } else if (user.role === "developer") {
+                window.location.href = "developer-dashboard.html";
+            } else if (user.role === "tester") {
+                window.location.href = "tester-dashboard.html";
+            }
+        } else {
+            alert("Invalid email or password. Please try again.");
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred during login.');
     }
-});
+}
+
+function validateForm(email, password) {
+    if (!email || !validateEmail(email)) {
+        alert("A valid Email is required.");
+        return false;
+    }
+
+    if (!password || password.length < 6) {
+        alert("Password must be at least 6 characters long.");
+        return false;
+    }
+
+    return true;
+}
+
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+}
+
+  
+
+

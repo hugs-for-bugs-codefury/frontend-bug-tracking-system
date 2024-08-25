@@ -4,7 +4,7 @@ document.getElementById("createProjectForm").addEventListener("submit", function
     const projectName = document.getElementById("projectName").value;
     const startDate = new Date(document.getElementById("startDate").value);
     const today = new Date();
-    const teamMembers = document.getElementById("teamMembers").selectedOptions;
+    const teamMembers = Array.from(document.getElementById("teamMembers").selectedOptions).map(option => option.value);
 
     // Check if the start date is at least 2 days later than today
     const minStartDate = new Date();
@@ -19,8 +19,7 @@ document.getElementById("createProjectForm").addEventListener("submit", function
     const developers = [];
     const testers = [];
 
-    for (let i = 0; i < teamMembers.length; i++) {
-        const member = teamMembers[i].value;
+    for (const member of teamMembers) {
         if (member.includes("dev")) {
             developers.push(member);
         } else if (member.includes("tester")) {
@@ -38,10 +37,25 @@ document.getElementById("createProjectForm").addEventListener("submit", function
         return;
     }
 
-    // Simulate project creation and generate a unique project ID
-    const projectId = "PRJ" + Math.floor(Math.random() * 1000);
-    alert(`Project "${projectName}" created successfully with ID ${projectId} and status "In Progress".`);
+    // Send data to the server
+    fetch('data/projects.json', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            projectName,
+            startDate: startDate.toISOString(),
+            teamMembers
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+        document.getElementById("createProjectForm").reset();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 
-    // Reset the form after successful submission
-    document.getElementById("createProjectForm").reset();
 });

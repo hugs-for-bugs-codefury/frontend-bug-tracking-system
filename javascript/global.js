@@ -1,34 +1,34 @@
-// router.js
+// // router.js
 
-document.addEventListener('DOMContentLoaded', () => {
-    const contentDiv = document.getElementById('content');
+// document.addEventListener('DOMContentLoaded', () => {
+//     const contentDiv = document.getElementById('content');
 
-    // Function to load content based on the current hash
-    function loadContent() {
-        const hash = window.location.hash.substring(1);
+//     // Function to load content based on the current hash
+//     function loadContent() {
+//         const hash = window.location.hash.substring(1);
+//         console.log("hello");
+//         let page = 'home.html';
+//         if (hash === 'register') {
+//             page = 'registration.html';
+//         } else if (hash === 'login') {
+//             page = 'login.html';
+//         } else if (hash === 'import-users') {
+//             page = 'import-users.html';
+//         }
 
-        let page = 'home.html';
-        if (hash === 'register') {
-            page = 'registration.html';
-        } else if (hash === 'login') {
-            page = 'login.html';
-        } else if (hash === 'import-users') {
-            page = 'import-users.html';
-        }
+//         fetch(page)
+//             .then(response => response.text())
+//             .then(data => {
+//                 contentDiv.innerHTML = data;
+//             });
+//     }
 
-        fetch(page)
-            .then(response => response.text())
-            .then(data => {
-                contentDiv.innerHTML = data;
-            });
-    }
+//     // Initial load
+//     loadContent();
 
-    // Initial load
-    loadContent();
-
-    // Load content when the hash changes
-    window.addEventListener('hashchange', loadContent);
-});
+//     // Load content when the hash changes
+//     window.addEventListener('hashchange', loadContent);
+// });
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -42,6 +42,3 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 
-// function goToHomePage() {
-//     window.location.href = 'index.html';
-// }
