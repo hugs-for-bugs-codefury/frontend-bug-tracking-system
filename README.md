@@ -51,12 +51,12 @@ Develper
 Sample user logins are: 
 For Project Manager - 
      email: alice@example.com
-     password: password123
+        password: password123
      
 For Developer - 
      email: bob@example.com
-     password: password123
+        password: password123
      
 For Tester - 
      email: carol@example.com
-     password: password123
+        password: password123
