@@ -1,0 +1,110 @@
+/* Styles remain consistent with previous pages */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* header {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.report-link {
+    margin-right: 20px;
+}
+
+.user-icon {
+    background: url('user_icon.png') no-repeat center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    margin: 3rem;
+}
+
+nav a{
+    font-weight: bold;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 40%;
+}
+
+.card h2 {
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+.card h3{
+    color: #007bff;
+}
+
+/* #userInfo {
+    margin-bottom: 20px;
+}
+
+#projectsSection {
+    margin-top: 20px;
+} */
+
+.project {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.project h4 {
+    margin: 0 0 5px 0;
+    color: #333;
+}
+
+.bug {
+    background-color: #eee;
+    padding: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.bug p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* footer {
+
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+} */

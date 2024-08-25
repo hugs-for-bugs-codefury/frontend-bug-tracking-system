@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* .header-title h1 {
+    margin: 0;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.header-right .user-info {
+    margin-right: 15px;
+} */
+
+#logout{
+    color: white;
+    text-decoration: none;
+}
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+    margin-top: 3px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+.user-info span{
+    padding-left:1rem;
+}
+main {
+    padding: 20px;
+}
+
+.project-details, .bug-list {
+    margin:3rem;
+    padding: 1rem;
+}
+
+.card-pro {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.card h3 {
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    cursor: pointer;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+footer {
+    background-color: #007bff;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}

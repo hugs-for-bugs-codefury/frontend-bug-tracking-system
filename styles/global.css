@@ -1,0 +1,135 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f7fa;
+    color: #333;
+}
+
+header {
+    background-color: #2f54eb;
+    color: white;
+    text-align: left;
+    padding:1rem 2rem 1rem 2rem ;
+}
+
+/* header h1 {
+    margin: 0;
+    display: inline-block;
+    font-size: 1.5em;
+} */
+
+
+nav {
+    float: right;
+    margin-top: 3px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-left: 1rem;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+span a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f5f7fa;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #2f54eb;
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.hero .btn {
+    background-color: #2f54eb;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* transition: 0.3s; */
+    margin: 0 20px; 
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+/* .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+} */
+.card:hover {
+    box-shadow: 1px 1px 8px #d4ecff;
+}
+
+#manager:hover,#developer:hover,#tester:hover{
+    background-color:#96C9F4;
+    transform: translateY(-2px);
+}
+
+.card h3 {
+    color: #2f54eb;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #666;
+    font-size: 1em;
+}
+
+.card img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+
+footer {
+    background-color: #2f54eb;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    position:fixed;
+}
+

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Bug Tracker</title>
+    <link rel="stylesheet" href="styles/global.css" />
+    <link rel="stylesheet" href="styles/resgistration.css" />
+    <!-- Bootsratp CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <!-- <div class="logo" onclick="goToHomePage()">Bug Tracker</div> -->
+      <span> <a href="index.html">Bug Tracker</a></span>
+      <nav>
+        <ul>
+          <li><a href="login.html">Login</a></li>
+          <li><a href="registration.html">Register</a></li>
+          <li><a href="import-users.html">Import Users</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="register-container">
+        <h2>Register</h2>
+        <form id="registerForm">
+          <div class="input-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" />
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" />
+          </div>
+          <div class="input-group">
+            <label for="role">Role</label>
+            <select id="role" name="role">
+              <option value="">Select a role</option>
+              <option value="pm">Project Manager</option>
+              <option value="developer">Developer</option>
+              <option value="tester">Tester</option>
+            </select>
+          </div>
+          <button type="submit">Register</button>
+        </form>
+      </section>
+    </main>
+
+    <!-- <footer>
+        <p>© 2023 Bug Tracking System. All rights reserved.</p>
+    </footer> -->
+    <footer id="footer" class="flex-shrink-0 py-2 text-white-50">
+      <div class="container text-center">
+        <small>Copyright &copy;2024 &nbsp;Bug Tracking System</small>
+      </div>
+    </footer>
+
+    <script src="javascript/global.js"></script>
+    <script src="javascript/registration.js"></script>
+  </body>
+</html>
