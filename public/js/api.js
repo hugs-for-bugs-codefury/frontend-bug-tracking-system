@@ -317,7 +317,6 @@ class API{
     }
 
     static getDevelopersByProject(project_id){
-        console.log([...API.developersProjects.values()]);
         return [...API.developersProjects.values()].filter(developerProject => developerProject.project_id === project_id)
             .map(developerProject => API.getDeveloperByDeveloperId(developerProject.developer_id));
     }

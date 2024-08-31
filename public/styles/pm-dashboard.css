@@ -1,39 +1,3 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.user-info {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    float: right;
-    margin-top: 3px;
-    display: flex;
-    justify-content: space-between;
-    
-}
-.user-info span{
-    padding-left:1rem;
-}
-
-
-h2 {
-    color: #1a73e8;
-    padding: 1rem;
-}
 
 #project-info {
     background-color: #fff;
@@ -41,21 +5,11 @@ h2 {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+  
 }
 
-#bug-list {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
+#project-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
 }
-
-
-/* footer {
-    background-color: #007bff;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-} */

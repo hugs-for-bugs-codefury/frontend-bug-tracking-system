@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       const content = await file.text();
       const data = JSON.parse(content);
-      API.load(data);
+      API.loadFromJson(data);
       alert("Users imported successfully.");
       window.location.href = "/login.html";
     } catch (error) {

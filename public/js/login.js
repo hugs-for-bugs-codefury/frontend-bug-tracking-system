@@ -1,3 +1,6 @@
+if(API.loggedUser!=null){
+    API.redirectToUserPage();
+}
 async function handleLogin() {
     event.preventDefault(); // Prevent default form submission
 
@@ -10,25 +13,14 @@ async function handleLogin() {
 
     try {
         // Fetch existing users
-        const response = await fetch('data/users.json'); // Replace with the actual path
-        const users = await response.json();
-
-        // Check if user exists and credentials are valid
-        const user = users.find(user => user.email === email && user.password === password);
-
+      
+       const user =  API.login(email, password);
         if (user) {
-            alert("Login successful!");
+            alert('Login successful');
+            API.redirectToUserPage();
 
-            // Redirect based on user role
-            if (user.role === "project-manager") {
-                window.location.href = "pm-dashboard.html";
-            } else if (user.role === "developer") {
-                window.location.href = "developer-dashboard.html";
-            } else if (user.role === "tester") {
-                window.location.href = "tester-dashboard.html";
-            }
         } else {
-            alert("Invalid email or password. Please try again.");
+            alert('Wrong email or password. Please try again.');
         }
     } catch (error) {
         console.error('Error:', error);

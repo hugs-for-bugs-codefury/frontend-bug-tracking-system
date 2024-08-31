@@ -1,4 +1,76 @@
-// Function to sort table columns
+document.addEventListener("DOMContentLoaded", function () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const projectId = parseInt(urlParams.get("project_id"));
+
+    const project = API.getProjectById(projectId);
+    console.log(project);
+
+    const project_status_text = {
+        'in_progress': "In Progress",
+        'completed': "Completed"
+    }
+    const bug_severity_text = {
+        'low': "Low",
+        'medium': "Medium",
+        'high': "High",
+        'critical': "Critical"
+    }
+
+   
+        document.getElementById("project-name").innerText = project.project_name;
+        document.getElementById("project-description").innerText = project.description;
+        document.getElementById("project-status").innerText = project_status_text[project.status];
+        document.getElementById("project-start-date").innerText = new Date(project.start_date).toLocaleDateString();
+        document.getElementById("project-manager").innerText = project.manager.name
+    
+
+    project.developers.forEach(developer => {
+        const developerDiv = document.getElementById("developers-list");
+        const developerDetails = `
+          <li class="list-group-item">${developer.name}</li>
+        `;
+        developerDiv.innerHTML = developerDetails + developerDiv.innerHTML;
+    });
+
+    project.testers.forEach(tester => {
+        const testerDiv = document.getElementById("testers-list");
+        const testerDetails = `
+          <li class="list-group-item">${tester.name}</li>
+        `;
+        testerDiv.innerHTML = testerDetails + testerDiv.innerHTML;
+    });
+
+    const bugs = project.bugs;
+    const bugTable = document.getElementById("bugs-table-body");
+
+        if (bugs.length > 0) {
+        bugs.forEach(bug => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td scope="row">${bug.bug_id}</td>
+                <td>${bug.title}</td>
+                <td >
+                <p class="text-truncate" style="max-width:30vw"> ${bug.description}</p>
+               </td>
+                <td>${bug.status=="open"?"Open":"Closed"}</td>
+                <td>${bug_severity_text[bug.severity]}</td>
+        
+                <td>${API.getDeveloperByDeveloperId(bug.assigned_to).name}</td>
+                <td>
+                    <button class="btn btn-primary" onclick="assignBug(${bug.bug_id})">Assign</button>
+                    <button class="btn btn-danger" onclick="closeBug(${bug.bug_id})">Close</button>
+                </td>
+            `;
+            bugTable.appendChild(row);
+        });
+    } else {
+        bugTable.innerHTML = "<p>No bugs found.</p>";
+    }
+
+
+});
+
+
 function sortTable(columnIndex) {
     const table = document.getElementById("bugsTable");
     let switching = true;
