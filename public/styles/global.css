@@ -14,39 +14,30 @@ header {
     padding:1rem 2rem 1rem 2rem ;
 }
 
-/* header h1 {
-    margin: 0;
-    display: inline-block;
-    font-size: 1.5em;
-} */
-
-
-nav {
-    float: right;
-    margin-top: 3px;
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-left: 1rem;
-}
-
-nav ul li a {
-    color: white;
+a {
+    color: #2f54eb;
     text-decoration: none;
-    font-weight: bold;
 }
+
+
 
 span a{
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+button{
+/* remove default styling */
+    background-color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    color: inherit;
+
+
 }
 
 .hero {
@@ -123,6 +114,9 @@ span a{
     height: 40px;
     margin-bottom: 10px;
 }
+
+
+/* Header Nav */
 
 
 footer {

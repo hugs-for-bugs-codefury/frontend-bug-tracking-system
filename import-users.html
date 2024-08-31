@@ -4,28 +4,37 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Import Users - Bug Tracker</title>
-    <link rel="stylesheet" href="styles/global.css" />
-    <link rel="stylesheet" href="styles/import-users.css" />
-    <!-- Bootsratp CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
+     <!-- Bootsratp CSS -->
+     <link
+     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+     rel="stylesheet"
+     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+     crossorigin="anonymous"
+   />
+    <link rel="stylesheet" href="/public/styles/global.css" />
+    <link rel="stylesheet" href="/public/styles/import-users.css" />
+   
   </head>
   <body>
-    <header>
-      <!-- <div class="logo" onclick="goToHomePage()">Bug Tracker</div> -->
-      <span> <a href="index.html">Bug Tracker</a></span>
-      <nav>
-        <ul>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="registration.html">Register</a></li>
-          <li><a href="import-users.html">Import Users</a></li>
-        </ul>
-      </nav>
-    </header>
+     <!-- ------------------------------- Navbar -------------------------------- -->
+     <nav
+     class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
+   >
+     <a class="navbar-brand" href="/">Bug Tracker</a>
+
+     <ul class="navbar-nav flex align-items-center">
+       <li class="nav-item">
+         <a class="nav-link" href="/login.html">Login</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/registration.html">Register</a>
+       </li>
+       <li class="nav-item active">
+         <a class="nav-link" href="/import-users.html">Import Users</a>
+       </li>
+     </ul>
+   </nav>
+
 
     <main>
       <section class="import-container">
@@ -33,7 +42,7 @@
         <form id="importForm">
           <div class="input-group">
             <label for="fileInput">Import JSON/XML File</label>
-            <input type="file" id="fileInput" accept=".json, .xml" />
+            <input type="file" id="fileInput" accept=".json" />
           </div>
           <button type="submit">Import Users</button>
         </form>
@@ -49,7 +58,13 @@
       </div>
     </footer>
 
-    <script src="javacript/global.js"></script>
-    <script src="javascript/import-users.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="/public/js/api.js"></script>
+    <script defer src="/public/js/global.js"></script>
+    <script src="/public/js/import-users.js"></script>
   </body>
 </html>

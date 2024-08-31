@@ -1,3 +1,8 @@
+if(API.loggedUser!=null){
+    API.redirectToUserPage();
+}
+
+
 async function registerUser() {
     event.preventDefault(); // Prevent default form submission
 
@@ -11,25 +16,15 @@ async function registerUser() {
     }
 
     try {
-        // Fetch existing users
-        const response = await fetch('data/users.json');
-        const users = await response.json();
-
-        // Check if user already exists
-        if (users.some(user => user.email === email)) {
-            alert("User with this email already exists.");
-            return;
+        const user =  API.registerUser(fullName, email, password, role);
+        if (user) {
+            alert('Registration successful');
+            console.log(user);
+            // Redirect to the login page
+            window.location.href = 'login.html';
+        } else {
+            alert('An error occurred during registration.');
         }
-
-        // Add new user
-        const newUser = { fullName, email, password, role };
-        users.push(newUser);
-
-        // Update users.json (This would normally be done server-side)
-        await saveUsers(users);
-
-        alert("Registration successful!");
-        document.getElementById("registerForm").reset();
     } catch (error) {
         console.error('Error:', error);
         alert('An error occurred during registration.');

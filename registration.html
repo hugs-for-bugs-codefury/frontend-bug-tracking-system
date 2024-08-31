@@ -4,27 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Register - Bug Tracker</title>
-  <link rel="stylesheet" href="styles/global.css" />
-  <link rel="stylesheet" href="styles/resgistration.css" />
-  <!-- Bootstrap CSS -->
   <link
     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
     rel="stylesheet"
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
     crossorigin="anonymous"
   />
+  <link rel="stylesheet" href="/public/styles/global.css" />
+  <link rel="stylesheet" href="/public/styles/resgistration.css" />
+  <!-- Bootstrap CSS -->
+  
 </head>
 <body>
-  <header>
-    <span> <a href="index.html">Bug Tracker</a></span>
-    <nav>
-      <ul>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="registration.html">Register</a></li>
-        <li><a href="import-users.html">Import Users</a></li>
-      </ul>
-    </nav>
-  </header>
+     <!-- ------------------------------- Navbar -------------------------------- -->
+     <nav
+     class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
+   >
+     <a class="navbar-brand" href="/">Bug Tracker</a>
+
+     <ul class="navbar-nav flex align-items-center">
+       <li class="nav-item">
+         <a class="nav-link" href="/login.html">Login</a>
+       </li>
+       <li class="nav-item active">
+         <a class="nav-link" href="/registration.html">Register</a>
+       </li>
+       <li class="nav-item">
+         <a class="nav-link" href="/import-users.html">Import Users</a>
+       </li>
+     </ul>
+   </nav>
 
   <main>
     <section class="register-container">
@@ -46,7 +55,7 @@
           <label for="role">Role</label>
           <select id="role" name="role">
             <option value="">Select a role</option>
-            <option value="pm">Project Manager</option>
+            <option value="manager">Project Manager</option>
             <option value="developer">Developer</option>
             <option value="tester">Tester</option>
           </select>
@@ -62,7 +71,14 @@
     </div>
   </footer>
 
-  <script src="javascript/global.js"></script>
-  <script src="javascript/registration.js"></script>
+  <script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+  crossorigin="anonymous"
+  defer
+></script>
+<script defer src="/public/js/api.js"></script>
+<script defer src="/public/js/global.js"></script>
+  <script defer src="/public/js/registration.js"></script>
 </body>
 </html>
