@@ -1,26 +1,48 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const projectInfo = document.getElementById('project-info');
-    const noProjectMsg = document.getElementById('no-project-msg');
-    const userAssignedToProject = true; // Change this to simulate no project assigned
+document.addEventListener("DOMContentLoaded", function() {
+    
+    const developer = API.getDeveloper(API.loggedUser.user_id);
+    const projects = API.getDeveloperProjects(developer.developer_id);
 
-    if (!userAssignedToProject) {
-        projectInfo.style.display = 'none';
-        noProjectMsg.style.display = 'block';
+    const project_status_text = {
+        'in_progress': "In Progress",
+        'completed': "Completed"
     }
 
-    const closeBugForm = document.getElementById('close-bug-form');
-    closeBugForm.addEventListener('submit', (event) => {
-        event.preventDefault();
 
-        const bugId = document.getElementById('bug-id').value;
-        const closingComment = document.getElementById('closing-comment').value;
 
-        if (bugId && closingComment) {
-            alert(`Bug ID ${bugId} marked for closing with comment: "${closingComment}"`);
-            // Implement further logic to handle the bug closure.
-            closeBugForm.reset();
-        } else {
-            alert('Please fill out all fields before submitting.');
-        }
-    });
+    console.log(projects)
+
+
+
+    const projectInfoDiv = document.getElementById("project-list");
+
+
+    if (projects.length > 0) {
+        projects.forEach(project => {
+           
+            const projectDetails = `
+                <div class="card">
+                <h5 style="padding-bottom:1rem"> ${project.project_name}</h5>
+                <span>Status: ${project_status_text[project.status]}</span>
+                <p>${project.description}</p>
+             
+                <p>Start Date: ${new Date(project.start_date).toLocaleDateString()}</p>
+                <a href="/developer/project-details.html?project_id=${project.project_id}" class="btn btn-primary mt-auto">View Project</a>
+              
+                </div>
+            `;
+            projectInfoDiv.innerHTML = projectDetails + projectInfoDiv.innerHTML;
+
+            
+        });
+    } else {
+        projectInfoDiv.innerHTML = "<p>No projects assigned.</p>";
+    }
+
+   
 });
+
+
+
+
+

@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const developer = API.getDeveloper(API.loggedUser.user_id);
+
     const urlParams = new URLSearchParams(window.location.search);
     const projectId = parseInt(urlParams.get("project_id"));
 
@@ -24,23 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("project-manager").innerText = project.manager.name
     
 
-    project.developers.forEach(developer => {
-        const developerDiv = document.getElementById("developers-list");
-        const developerDetails = `
-          <li class="list-group-item">${developer.name}</li>
-        `;
-        developerDiv.innerHTML = developerDetails + developerDiv.innerHTML;
-    });
-
-    project.testers.forEach(tester => {
-        const testerDiv = document.getElementById("testers-list");
-        const testerDetails = `
-          <li class="list-group-item">${tester.name}</li>
-        `;
-        testerDiv.innerHTML = testerDetails + testerDiv.innerHTML;
-    });
-
-    const bugs = project.bugs;
+    const bugs = project.bugs.filter(bug => bug.assigned_to == developer.developer_id);
     const bugTable = document.getElementById("bugs-table-body");
 
         if (bugs.length > 0) {
@@ -56,9 +42,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${bug_severity_text[bug.severity]}</td>
         
                 <td>${API.getDeveloperByDeveloperId(bug.assigned_to).name}</td>
-                <td>
-                    <button class="btn btn-primary" onclick="assignBug(${bug.bug_id})">Assign</button>
-                    <button class="btn btn-danger" onclick="closeBug(${bug.bug_id})">Close</button>
+                <td ">
+
+                    ${bug.status === 'open' ? `<button class="btn btn-danger" onclick="updateBugStatus(${bug.bug_id}, 'close')">Close Bug</button>` : 
+                    `<button class="btn btn-outline-primary" onclick="updateBugStatus(${bug.bug_id}, 'open')">Reopen</button>`
+                    }
+
                 </td>
             `;
             bugTable.appendChild(row);
@@ -69,6 +58,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 });
+
+updateBugStatus = (bugId, status) => {
+    API.updateBugStatus(bugId, status);
+    alert(`Bug ${status === 'open' ? 'reopened' : 'closed'} successfully.`);
+    window.location.reload();
+};
 
 
 function sortTable(columnIndex) {
