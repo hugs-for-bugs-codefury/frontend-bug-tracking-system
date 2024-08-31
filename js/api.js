@@ -185,8 +185,9 @@ class API{
     static createBug(project_id, title, description, severity, created_by){
         if(!API.loggedUser || API.loggedUser.role !== 'tester') return null;
         const bug_id = API.bugs.size + 1;
-        const bug = {bug_id, project_id, title, description, severity, status: 'pending', created_by, assigned_to: null};
+        const bug = {bug_id, project_id, title, description, severity, status: 'open', created_by, assigned_to: null};
         API.bugs.set(bug_id, bug);
+
         API.save();
         return bug;
     }
@@ -252,7 +253,7 @@ class API{
 
     static getProjectById(project_id){
         // get all the project details along with testers, developers, and bugs
-        const project = API.projects.get(project_id);
+        const project = {...API.projects.get(project_id)};
         if (!project) return null;
         const developers = this.getDevelopersByProject(project_id);
         const testers = this.getTestersByProject(project_id);

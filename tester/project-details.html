@@ -13,7 +13,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/manager/styles/project-details.css" />
+    <link rel="stylesheet" href="/tester/styles/project-details.css" />
   </head>
   <body>
     <!-- ------------------------------- Navbar -------------------------------- -->
@@ -50,21 +50,13 @@
         <p>
           <strong>Project Manager:</strong> <span id="project-manager"></span>
         </p>
-        <div class="members-list">
-          <div>
-            <strong>Testers</strong>
-            <ul class="list-group" id="testers-list"></ul>
-          </div>
-          <div>
-            <strong>Developers</strong>
-            <ul class="list-group" id="developers-list"></ul>
-          </div>
+
         </div>
       </section>
 
       <!-- Part II: Bug List -->
       <section class="bug-list">
-        <h3>Bug List</h3>
+        <h3>Bug raised by you</h3>
         <div class="card-pro">
           <div class="input-group mb-3">
             <input
@@ -78,7 +70,18 @@
                 Search
               </button>
             </div>
+            
           </div>
+
+          <div class="input-group mb-3">
+        
+          
+              <button id="report-bug-btn" class="btn btn-outline-warning" type="button">
+                Report Bug
+              </button>
+            
+          </div>
+          
           <div class="table-responsive">
             <table class="table" id="bugsTable">
               <thead>
@@ -88,8 +91,6 @@
                   <th scope="col" onclick="sortTable(1)">Description</th>
                   <th scope="col" onclick="sortTable(2)">Severity</th>
                   <th scope="col" onclick="sortTable(3)">Status</th>
-                  <th scope="col" onclick="sortTable(4)">Assigned To</th>
-                  <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody id="bugs-table-body">
@@ -118,6 +119,6 @@
     <script defer src="/js/api.js"></script>
     <script defer src="/js/protected.js"></script>
     <script defer src="/js/global.js"></script>
-    <script defer src="/manager/js/project-details.js"></script>
+    <script defer src="/tester/js/project-details.js"></script>
   </body>
 </html>

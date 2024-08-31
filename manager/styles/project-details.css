@@ -1,0 +1,25 @@
+
+
+.project-details, .bug-list {
+    margin:3rem;
+    padding: 1rem;
+}
+
+.card-pro {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 2rem;
+}
+
+.card h3 {
+    margin-top: 15px;
+}
+
+
+.members-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+}

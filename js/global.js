@@ -9,7 +9,7 @@ if(API.loggedUser!=null){
         nav_role.innerHTML = API.loggedUser.role;
     }
     if(nav_last_login!=null){
-        nav_last_login.innerHTML = API.loggedUser.last_login;
+        nav_last_login.innerHTML = new Date(API.loggedUser.last_login).toLocaleString();
     }
 
 }
