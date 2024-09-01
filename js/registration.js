@@ -18,37 +18,37 @@ async function registerUser() {
     try {
         const user =  API.registerUser(fullName, email, password, role);
         if (user) {
-            alert('Registration successful');
+            showToast('Success', `${email} registered as ${role}`, 'success');
             console.log(user);
             // Redirect to the login page
             window.location.href = 'login.html';
         } else {
-            alert('An error occurred during registration.');
+            showToast('Error', 'Failed to register user.', 'danger');
         }
     } catch (error) {
         console.error('Error:', error);
-        alert('An error occurred during registration.');
+        showToast('Error', 'Failed to register user.', 'danger');
     }
 }
 
 function validateForm(fullName, email, password, role) {
     if (!fullName) {
-        alert("Full Name is required.");
+        showToast('Error', 'Full Name is required.', 'danger');
         return false;
     }
 
     if (!email || !validateEmail(email)) {
-        alert("A valid Email is required.");
+        showToast('Error', 'Invalid email address.', 'danger');
         return false;
     }
 
     if (!password || password.length < 6) {
-        alert("Password must be at least 6 characters long.");
+        showToast('Error', 'Password must be at least 6 characters.', 'danger');
         return false;
     }
 
     if (!role) {
-        alert("Please select a Role.");
+        showToast('Error', 'Role is required.', 'danger');
         return false;
     }
 
@@ -58,17 +58,5 @@ function validateForm(fullName, email, password, role) {
 function validateEmail(email) {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(String(email).toLowerCase());
-}
-
-async function saveUsers(users) {
-    // Assuming you have an API to save users (this is a placeholder)
-    // This function should send the updated user list back to the server to be saved.
-    await fetch('path/to/saveUsersAPI', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(users),
-    });
 }
 

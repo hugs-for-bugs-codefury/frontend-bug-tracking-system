@@ -61,8 +61,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 updateBugStatus = (bugId, status) => {
     API.updateBugStatus(bugId, status);
-    alert(`Bug ${status === 'open' ? 'reopened' : 'closed'} successfully.`);
+
+    showToast("Bug Updated", `Bug ${status === 'open' ? 'reopened' : 'closed'} successfully.`, "success");
     window.location.reload();
+
 };
 
 
@@ -109,14 +111,3 @@ function sortTable(columnIndex) {
     }
 }
 
-// Function to assign a bug to a developer
-function assignBug(bugId) {
-    alert(`Assigning bug ${bugId}`);
-    // Additional logic to assign the bug
-}
-
-// Function to close a bug
-function closeBug(bugId) {
-    alert(`Closing bug ${bugId}`);
-    // Additional logic to close the bug
-}

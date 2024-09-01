@@ -15,7 +15,29 @@
     <link rel="stylesheet" href="/styles/login.css" />
   </head>
 
+ 
+
   <body>
+     <!-- --------------------------- Toast Container --------------------------- -->
+  <div aria-live="polite" aria-atomic="true" class="position-relative z-3">
+    <div id="toast-container" class="toast-container top-0 end-0 p-3">
+      <!-- Toasts using showToast function in global.js -->
+      <div class="toast"  role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Bootstrap</strong>
+          <small class="text-body-secondary">just now</small>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="toast-body">See? Just like this.</div>
+      </div>
+    </div>
+  </div>
+
     <!-- ------------------------------- Navbar -------------------------------- -->
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
@@ -44,9 +66,11 @@
         <label for="password">Password</label>
         <input type="password" id="password" name="password" required />
 
-        <button type="button" onclick="handleLogin()">Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
+
+    <!-- ------------------------------- Footer -------------------------------- -->
 
     <footer id="footer" class="flex-shrink-0 py-2 text-white-50">
       <div class="container text-center">

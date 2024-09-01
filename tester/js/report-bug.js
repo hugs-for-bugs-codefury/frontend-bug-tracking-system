@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const severityLevel = formData.get('severityLevel');
 
         if (!projectId || !bugTitle || !bugDescription || !severityLevel) {
-            alert('Please fill out all fields.');
+           showToast('Please fill in all fields.',`Project, Bug Title, Description and Severity are required.`, 'error');
             return;
         }
 
@@ -44,11 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const createdBug = API.createBug(projectId, bugTitle, bugDescription, severityLevel, tester.tester_id);
   
         if(!createdBug){
-            alert("Failed to create bug.");
+            showToast('Error reporting bug.', 'Please try again.', 'error');
             return;
         }
-
-        alert(`Bug ID ${createdBug.bug_id} reported successfully.`);
+        showToast('Bug reported successfully.', `Bug ID: ${createdBug.bug_id}`, 'success');
         window.location.href = `/tester/project-details.html?project_id=${projectId}`;
     });
 });

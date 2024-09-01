@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assign Bug</title>
+      <!-- Bootsratp CSS -->
+      <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/manager/styles/assign-bug.css">
+   
+</head>
+<body>
+     <!-- ------------------------------- Navbar -------------------------------- -->
+     <nav
+     class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
+   >
+     <a class="navbar-brand" href="/">Bug Tracker</a>
+
+     <ul id="nav-links-user" class="navbar-nav flex align-items-center">
+       <li class="nav-link">
+         <span id="username"></span> [<span id="role"></span>]
+       </li>
+
+       <li class="nav-link">Last Login: <span id="last-login"></span></li>
+       <li class="nav-link fw-bold">
+         <button onclick="logout()" class="btn btn-warning btn-sm">
+           Logout
+         </button>
+       </li>
+     </ul>
+   </nav>
+
+    <main>
+      <h2>Assign Bug</h2>
+        <div class="card">
+
+            <form id="assignBugForm">
+                <h3 id="projectName">Project Name</h3>
+                <p id="projectDescription"></p>
+                <hr/>
+            
+                <div class="form-group">
+                    <label for="bug-to-assign">Bug</label>
+                    <select id="bug-to-assign" name="bugToAssign" required>
+                        <!-- Options populated dynamically through JavaScript -->
+                    </select>
+                </div>
+                <div id="selected-bug-details">
+                    <p><strong>Reporter:</strong> <span id="reporter"></span></p>
+                    <p><strong>Description:</strong> <span id="description"></span></p>
+                    <p><strong>Severity Level:</strong> <span id="severity"></span></p>
+                </div>
+                <div class="form-group">
+                    <label for="developer-to-assign">Developer</label>
+                    <select  id="developer-to-assign" name="developerToAssign" required>
+                        <!-- Options populated dynamically through JavaScript -->
+                         <option disabled selected value >Select Developer</option>
+                    </select>
+                </div>
+                <div id="selected-developer-details">
+                <p> <span id="num-assigned-projects"></span></p>
+                <p> <span id="num-open-bugs"></span></p>
+              </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Assign</button>
+                </div>
+                <!-- <button type="submit">Submit Bug Report</button> -->
+            </form>
+        </div>
+    </main>
+
+    <!-- <footer>
+        <p>© 2023 Bug Tracking System. All rights reserved.</p>
+    </footer> -->
+
+    <footer id="footer" class="flex-shrink-0 py-2 text-white-50">
+        <div class="container text-center">
+          <small>Copyright &copy;2024 &nbsp;Bug Tracking System</small>
+        </div>
+      </footer>
+      <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="/js/api.js"></script>
+    <script defer src="/js/protected.js"></script>
+    <script defer src="/js/global.js"></script>
+    <script src="/manager/js/assign-bug.js"></script>
+</body>
+</html>

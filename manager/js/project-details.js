@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const projectId = parseInt(urlParams.get("project_id"));
 
   const project = API.getProjectById(projectId);
-  console.log(project);
 
   const project_status_text = {
     in_progress: "In Progress",
@@ -56,17 +55,21 @@ document.addEventListener("DOMContentLoaded", function () {
                   bug.description
                 }</p>
                </td>
+               <td>${bug_severity_text[bug.severity]}</td>
                 <td>${bug.status == "open" ? "Open" : "Closed"}</td>
-                <td>${bug_severity_text[bug.severity]}</td>
         
                 <td>${bug.assigned_to!==null ? API.getDeveloperByDeveloperId(bug.assigned_to).name : "-"}</td>
-                <td>
-                    ${bug.assigned_to === null ? `<button class="btn btn-primary" onclick="assignBug(${bug.bug_id})">Assign Bug</button>` : ""}
+                <td class="d-flex flex-row gap-2 flex-wrap" >
+                    ${bug.assigned_to === null ? `<button class="btn btn-primary" onclick="assignBug(${project.project_id},${bug.bug_id})">Assign Bug</button>` :
+                    `<button class="btn btn-outline-primary" onclick="assignBug(${project.project_id},${bug.bug_id})">Reassign</button>`
+                    }
                     ${
                         bug.status === "open"
                         ? `<button class="btn btn-danger" onclick="updateBugStatus(${bug.bug_id}, 'close')">Close Bug</button>`
                         : `<button class="btn btn-outline-primary" onclick="updateBugStatus(${bug.bug_id}, 'open')">Reopen</button>`
                     }
+               
+
                 </td>
             `;
       bugTable.appendChild(row);
@@ -77,16 +80,11 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 updateBugStatus = (bugId, status) => {
   API.updateBugStatus(bugId, status);
-  alert(`Bug ${status === "open" ? "reopened" : "closed"} successfully.`);
+  showToast("Bug Updated", `Bug ${status === "open" ? "reopened" : "closed"} successfully.`, "success");
   window.location.reload();
 };
-assignBug = (bugId) => {
-  const developerId = parseInt(prompt("Enter Developer ID:"));
-  if (developerId) {
-    API.assignBug(bugId, developerId);
-    alert("Bug assigned successfully.");
-    window.location.reload();
-  }
+assignBug = (project_id, bugId) => {
+  window.location.href = `/manager/assign-bug.html?project_id=${project_id}&bug_id=${bugId}`;
 };
 
 function sortTable(columnIndex) {

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
     if (!file) {
-      alert("Please select a file.");
+      showToast("Error", "Please select a file to upload.", "danger");
       return;
     }
 
@@ -16,10 +16,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = await file.text();
       const data = JSON.parse(content);
       API.loadFromJson(data);
-      alert("Users imported successfully.");
+      showToast("Success", "Data imported successfully.", "success");
       window.location.href = "/login.html";
     } catch (error) {
-      alert("Invalid file format. Please upload a valid JSON file.");
+      showToast("Error", "Failed to import data.", "danger");
       return;
     }
   });

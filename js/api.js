@@ -147,9 +147,7 @@ class API{
     }
 
     static assignBugToDeveloper(bug_id, developer_id){
-        if(!API.loggedUser || API.loggedUser.role !== 'manager'){
-            throw new Error('Only managers can assign bugs');
-        }
+        this.__accessControl(['manager'])
         const bug = API.bugs.get(bug_id);
         if (!bug) return null;
         bug.assigned_to = developer_id;
@@ -207,7 +205,8 @@ class API{
     }
 
     static updateBugStatus(bug_id, status){
-        if(!API.loggedUser || API.loggedUser.role !== 'developer') return null;
+        this.__accessControl(['developer', 'manager'])
+
         const bug = API.bugs.get(bug_id);
         if (!bug) return null;
         bug.status = status;
@@ -263,6 +262,15 @@ class API{
         return {...project, developers, testers, bugs, manager};
     }
 
+    static getProjectByBug(bug_id){
+        const bug = API.bugs.get(bug_id);
+        if (!bug) return null;
+        return API.getProjectById(bug.project_id);
+    }
+
+    static getBug(bug_id){
+        return API.bugs.get(bug_id);
+    }
 
     /* ---------------------------- Helper Functions ---------------------------- */
 
@@ -304,15 +312,22 @@ class API{
         this.loggedUser = null;
         this.save();
         this.logout();
-        
-        
+    }
 
+
+
+    /* ---------------------------- Private Functions --------------------------- */
+    
+    static __accessControl(roles){
+        if(!API.loggedUser || !roles.includes(API.loggedUser.role)){
+            throw new Error(`Only ${roles.join(', ')} can access this function, ${API.loggedUser?.role} is not allowed`);
+        }
 
 
     }
 
 
-
+    
     static getBugs(project_id){
         return [...API.bugs.values()].filter(bug => bug.project_id === project_id);
     }

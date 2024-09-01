@@ -38,11 +38,6 @@ document
     event.preventDefault();
     const currentManager = API.getManagerById(API.loggedUser.user_id);
 
-
-    if(!currentManager?.manager_id){
-      alert("You are not a manager.");
-      return;
-    }
     const projectName = document.getElementById("projectName").value;
     const projectDescription =
       document.getElementById("projectDescription").value;
@@ -73,10 +68,10 @@ document
       testersCheckList.forEach((tester_id) => {
         API.assignProjectToTester(project.project_id, tester_id);
       });
-      alert("Project created successfully.");
+      showToast("Project created successfully.", `Project ID: ${project.project_id}`, "success");
       window.location.href = "/manager/dashboard.html";
     } catch (error) {
       console.error("Error:", error);
-      alert("An error occurred while creating the project.");
+      showToast("Failed to create project.", "An error occurred. Try again later.", "danger");
     }
   });

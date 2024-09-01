@@ -44,11 +44,3 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-function markBugForClosing(bugId) {
-    alert(`Bug with ID ${bugId} marked for closing.`);
-    // Add the logic to update the bug status in your system
-}
-
-
-
-
