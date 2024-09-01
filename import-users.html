@@ -4,40 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Import Users - Bug Tracker</title>
-     <!-- Bootsratp CSS -->
-     <link
-     href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-     rel="stylesheet"
-     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-     crossorigin="anonymous"
-   />
+    <!-- Bootsratp CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="/styles/global.css" />
     <link rel="stylesheet" href="/styles/import-users.css" />
-   
   </head>
   <body>
-     <!-- ------------------------------- Navbar -------------------------------- -->
-     <nav
-     class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
-   >
-     <a class="navbar-brand" href="/">Bug Tracker</a>
+    <!-- --------------------------- Toast Container --------------------------- -->
+    <div aria-live="polite" aria-atomic="true" class="position-relative z-3">
+      <div id="toast-container" class="toast-container top-0 end-0 p-3">
+        <!-- Toasts using showToast function in global.js -->
 
-     <ul class="navbar-nav flex align-items-center">
-       <li class="nav-item">
-         <a class="nav-link" href="/login.html">Login</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="/registration.html">Register</a>
-       </li>
-       <li class="nav-item active">
-         <a class="nav-link" href="/import-users.html">Import Users</a>
-       </li>
-     </ul>
-   </nav>
+      </div>
+    </div>
 
+    <!-- --------------------------- Modal Container --------------------------- -->
+    <div id="modal-container" class="modal-container"></div>
+    <!-- ------------------------------- Navbar -------------------------------- -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
+    >
+      <a class="navbar-brand" href="/">Bug Tracker</a>
+
+      <ul class="navbar-nav flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" href="/login.html">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/registration.html">Register</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/import-users.html">Import Users</a>
+        </li>
+      </ul>
+    </nav>
 
     <main>
-      <section class="import-container">
+      <div class="import-container">
         <h2>Import Users</h2>
         <form id="importForm">
           <div class="input-group">
@@ -45,8 +53,14 @@
             <input type="file" id="fileInput" accept=".json" />
           </div>
           <button type="submit">Import Users</button>
+          <!-- download sample file -->
         </form>
-      </section>
+        <div class="d-flex w-100 justify-content-center">
+          <a class="mt-4" href="/data/sample.json" download
+            >Download Sample File</a
+          >
+        </div>
+      </div>
     </main>
 
     <!-- <footer>

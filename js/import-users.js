@@ -1,8 +1,7 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("importForm");
-
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent form submission
+document
+  .getElementById("importForm")
+  .addEventListener("submit", async function (e) {
+    e.preventDefault();
 
     const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
@@ -16,11 +15,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const content = await file.text();
       const data = JSON.parse(content);
       API.loadFromJson(data);
-      showToast("Success", "Data imported successfully.", "success");
-      window.location.href = "/login.html";
+      showToast("Success", 
+      `${data.users.length} users and ${data.projects.length} projects imported successfully.`
+        , "success");
+
+      API.logout();
+      
     } catch (error) {
+      console.log(error);
       showToast("Error", "Failed to import data.", "danger");
       return;
     }
   });
-});

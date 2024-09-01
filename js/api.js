@@ -36,7 +36,7 @@ class API{
     static logout(){
         API.loggedUser = null;
         API.save();
-        window.location.href = 'login.html';
+        window.location.href = '/login.html';
         
     }
 
@@ -311,7 +311,7 @@ class API{
         this.bugs = new Map(json.bugs.map(bug => [bug.bug_id, bug]));
         this.loggedUser = null;
         this.save();
-        this.logout();
+        
     }
 
 
