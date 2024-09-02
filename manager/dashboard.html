@@ -12,21 +12,20 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/manager/styles/dashboard.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
   </head>
 
   <body>
-         <!-- --------------------------- Toast Container --------------------------- -->
-  <div aria-live="polite" aria-atomic="true" class="position-relative z-3">
-    <div id="toast-container" class="toast-container top-0 end-0 p-3">
-      <!-- Toasts using showToast function in global.js -->
-      
+    <!-- --------------------------- Toast Container --------------------------- -->
+    <div aria-live="polite" aria-atomic="true" class="position-relative z-3">
+      <div id="toast-container" class="toast-container top-0 end-0 p-3">
+        <!-- Toasts using showToast function in global.js -->
+      </div>
     </div>
-  </div>
 
-  <!-- --------------------------- Modal Container --------------------------- -->
-  <div id="modal-container" class="modal-container"></div>
+    <!-- --------------------------- Modal Container --------------------------- -->
+    <div id="modal-container" class="modal-container"></div>
     <!-- ------------------------------- Navbar -------------------------------- -->
     <nav
       class="navbar navbar-expand-lg navbar-dark bg-primary px-3 justify-content-between"
@@ -48,7 +47,9 @@
     </nav>
 
     <main class="container">
-      <h2>Project Manager Dashboard</h2>
+      <div class="page-heading">
+        <h1>Manager Dashboard</h1>
+      </div>
 
       <div id="project-info">
         <h3>Projects:</h3>
@@ -80,9 +81,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script defer src="/js/api.js"></script>
-    <script defer src="/js/protected.js"></script>
-    <script defer src="/js/global.js"></script>
-    <script src="/manager/js/dashboard.js"></script>
+    <script defer src="../js/api.js"></script>
+    <script defer src="../js/protected.js"></script>
+    <script defer src="../js/global.js"></script>
+    <script defer src="js/dashboard.js"></script>
   </body>
 </html>

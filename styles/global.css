@@ -127,3 +127,18 @@ footer {
     position:fixed;
 }
 
+
+
+.page-heading {
+    font-size: 2rem; /* Matches Bootstrap's display-4 size */
+    font-weight: 700; /* Makes the heading bold */
+    color: #343a40; /* Dark grey text, matching Bootstrap's text-dark */
+    text-align: left; /* Centers the heading */
+    margin-top: 20px; /* Adds some space above the heading */
+    margin-bottom: 20px; /* Adds space below the heading */
+    padding-bottom: 10px; /* Padding below for better spacing */
+    border-bottom: 2px solid #dee2e6; /* Light grey bottom border for emphasis */
+    letter-spacing: 0.05em; /* Slight letter spacing for readability */
+
+
+}

@@ -1,3 +1,7 @@
+if(API.loggedUser!=null){
+    API.redirectToUserPage();
+}
+
 document.getElementById("login-form").addEventListener('submit', (e)=>{
     e.preventDefault();
 

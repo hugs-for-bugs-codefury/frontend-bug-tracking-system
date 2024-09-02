@@ -12,8 +12,8 @@
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/styles/global.css" />
-    <link rel="stylesheet" href="/tester/styles/project-details.css" />
+    <link rel="stylesheet" href="../styles/global.css" />
+    <link rel="stylesheet" href="styles/project-details.css" />
   </head>
   <body>
          <!-- --------------------------- Toast Container --------------------------- -->
@@ -46,24 +46,25 @@
       </ul>
     </nav>
 
-    <main>
-      <!-- Part I: Project Details -->
-      <section class="project-details">
-        <h3>Project Details</h3>
-        <div class="card-pro" ">
-        <p><strong>Project Name:</strong> <span id="project-name"></span></p>
-        <p id="project-description"></p>
-        <p><strong>Status:</strong> <span id="project-status"></span></p>
-        <p>
-          <strong>Start Date:</strong> <span id="project-start-date"></span>
-        </p>
-        <p>
-          <strong>Project Manager:</strong> <span id="project-manager"></span>
-        </p>
-
-        </div>
-      </section>
-
+    <main class="container">
+           <!-- Part I: Project Details -->
+           <section class="project-details">
+            <div class="page-heading">
+              <h1>Project Details</h1>
+             
+            </div>
+            <div class="card-pro" ">
+            <p><strong>Project Name:</strong> <span id="project-name"></span></p>
+            <p id="project-description"></p>
+            <p><strong>Status:</strong> <span id="project-status"></span></p>
+            <p>
+              <strong>Start Date:</strong> <span id="project-start-date"></span>
+            </p>
+            <p>
+              <strong>Project Manager:</strong> <span id="project-manager"></span>
+            </p>
+       
+          </section>
       <!-- Part II: Bug List -->
       <section class="bug-list">
         <h3>Bug raised by you</h3>
@@ -126,9 +127,9 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script defer src="/js/api.js"></script>
-    <script defer src="/js/protected.js"></script>
-    <script defer src="/js/global.js"></script>
-    <script defer src="/tester/js/project-details.js"></script>
+    <script defer src="../js/api.js"></script>
+    <script defer src="../js/protected.js"></script>
+    <script defer src="../js/global.js"></script>
+    <script defer src="js/project-details.js"></script>
   </body>
 </html>

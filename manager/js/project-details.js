@@ -61,14 +61,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${bug.assigned_to!==null ? API.getDeveloperByDeveloperId(bug.assigned_to).name : "-"}</td>
                 <td class="d-flex flex-row gap-2 flex-wrap" >
                     ${bug.assigned_to === null ? `<button class="btn btn-primary" onclick="assignBug(${project.project_id},${bug.bug_id})">Assign Bug</button>` :
-                    `<button class="btn btn-outline-primary" onclick="assignBug(${project.project_id},${bug.bug_id})">Reassign</button>`
+                    `<button class="btn btn-outline-secondary" onclick="assignBug(${project.project_id},${bug.bug_id})">Reassign</button>`
                     }
                     ${
                         bug.status === "open"
                         ? `<button class="btn btn-danger" onclick="updateBugStatus(${bug.bug_id}, 'close')">Close Bug</button>`
-                        : `<button class="btn btn-outline-primary" onclick="updateBugStatus(${bug.bug_id}, 'open')">Reopen</button>`
+                        : `<button class="btn btn-outline-secondary" onclick="updateBugStatus(${bug.bug_id}, 'open')">Reopen</button>`
                     }
-               
+               <button class="btn btn-outline-primary" onclick="window.location.href='/manager/track-bug.html?project_id=${project.project_id}&bug_id=${bug.bug_id}'">Track</button>
 
                 </td>
             `;

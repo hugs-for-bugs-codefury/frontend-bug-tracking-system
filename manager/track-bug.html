@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assign Bug</title>
+    <title>Track Bug</title>
       <!-- Bootsratp CSS -->
       <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../styles/global.css">
-    <link rel="stylesheet" href="styles/assign-bug.css">
+    <link rel="stylesheet" href="styles/track-bug.css">
    
 </head>
 <body>
@@ -49,42 +49,28 @@
 
     <main class="container">
       <div class="page-heading">
-        <h1>Assign Bug</h1>
+        <h1>Track Bug</h1>
       </div>
         <div class="card">
 
-            <form id="assignBugForm">
-                <h3 id="projectName">Project Name</h3>
-                <p id="projectDescription"></p>
+            <!-- bug details like titile description and sevrity and linked project -->
+            <div class="card-body">
+                <h3 id="bugTitle"></h3>
+
+                <p class="d-flex flex-row justify-content-center gap-2" >
+                    <span id="bugSeverity"></span>
+                    <span id="bugStatus"></span>
+                     </p>
+                <p id="bugDescription"></p>
+                <p id="bugProject"></p>
                 <hr/>
+                <h4 class="fw-bold">Timeline</h4>
+
+                <div id="timeline" class="timeline">
+          
+                </div>
+            </div>
             
-                <div class="form-group">
-                    <label for="bug-to-assign">Bug</label>
-                    <select id="bug-to-assign" name="bugToAssign" required>
-                        <!-- Options populated dynamically through JavaScript -->
-                    </select>
-                </div>
-                <div id="selected-bug-details">
-                    <p><strong>Reporter:</strong> <span id="reporter"></span></p>
-                    <p><strong>Description:</strong> <span id="description"></span></p>
-                    <p><strong>Severity Level:</strong> <span id="severity"></span></p>
-                </div>
-                <div class="form-group">
-                    <label for="developer-to-assign">Developer</label>
-                    <select  id="developer-to-assign" name="developerToAssign" required>
-                        <!-- Options populated dynamically through JavaScript -->
-                         <option disabled selected value >Select Developer</option>
-                    </select>
-                </div>
-                <div id="selected-developer-details">
-                <p> <span id="num-assigned-projects"></span></p>
-                <p> <span id="num-open-bugs"></span></p>
-              </div>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit">Assign</button>
-                </div>
-                <!-- <button type="submit">Submit Bug Report</button> -->
-            </form>
         </div>
     </main>
 
@@ -105,6 +91,6 @@
     <script defer src="../js/api.js"></script>
     <script defer src="../js/protected.js"></script>
     <script defer src="../js/global.js"></script>
-    <script defer src="js/assign-bug.js"></script>
+    <script defer src="js/track-bug.js"></script>
 </body>
 </html>

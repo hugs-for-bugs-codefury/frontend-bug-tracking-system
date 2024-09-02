@@ -11,6 +11,7 @@ class API{
     static developersProjects = new Map();
     static testersProjects = new Map();
     static bugs = new Map();
+    static bug_history = new Array();
 
 
     static loggedUser = null;
@@ -152,6 +153,7 @@ class API{
         if (!bug) return null;
         bug.assigned_to = developer_id;
         API.bugs.set(bug_id, bug);
+        API.bug_history.push({bug_id:bug.bug_id,actor: API.loggedUser.user_id, action: `assigned`, timestamp: new Date().getTime()});
         API.save();
         return bug;
     }
@@ -185,6 +187,8 @@ class API{
         const bug_id = API.bugs.size + 1;
         const bug = {bug_id, project_id, title, description, severity, status: 'open', created_by, assigned_to: null};
         API.bugs.set(bug_id, bug);
+        API.bug_history.set(bug_id, []);
+        API.bug_history.push({bug_id:bug_id, actor: created_by, action: 'created', timestamp: new Date().getTime()});
 
         API.save();
         return bug;
@@ -211,6 +215,7 @@ class API{
         if (!bug) return null;
         bug.status = status;
         API.bugs.set(bug_id, bug);
+        API.bug_history.push({bug_id:bug.bug_id, actor: API.loggedUser.user_id, action: status, timestamp: new Date().getTime()});
         API.save();
         return bug;
     }
@@ -271,6 +276,11 @@ class API{
     static getBug(bug_id){
         return API.bugs.get(bug_id);
     }
+    static getBugHistory(bug_id){
+        // get bug history along with the user details
+        
+        return API.bug_history.filter(history => history.bug_id === bug_id).map(history => ({...history, actor: API.getUser(history.actor)}));
+    }
 
     /* ---------------------------- Helper Functions ---------------------------- */
 
@@ -283,6 +293,7 @@ class API{
         API.developersProjects = new Map(JSON.parse(localStorage.getItem('developersProjects')));
         API.testersProjects = new Map(JSON.parse(localStorage.getItem('testersProjects')));
         API.bugs = new Map(JSON.parse(localStorage.getItem('bugs')));
+        API.bug_history = JSON.parse(localStorage.getItem('bug_history'));
         API.loggedUser = JSON.parse(localStorage.getItem('loggedUser')) || null;
     }
 
@@ -296,6 +307,7 @@ class API{
         localStorage.setItem('developersProjects', JSON.stringify([...API.developersProjects]));
         localStorage.setItem('testersProjects', JSON.stringify([...API.testersProjects]));
         localStorage.setItem('bugs', JSON.stringify([...API.bugs]));
+        localStorage.setItem('bug_history', JSON.stringify([...API.bug_history]));
         localStorage.setItem('loggedUser', JSON.stringify(API.loggedUser));
     }
 
@@ -309,9 +321,23 @@ class API{
         this.developersProjects = new Map(json.developersProjects.map(developerProject => [`${developerProject.developer_id}-${developerProject.project_id}`, developerProject]));
         this.testersProjects = new Map(json.testersProjects.map(testerProject => [`${testerProject.tester_id}-${testerProject.project_id}`, testerProject]));
         this.bugs = new Map(json.bugs.map(bug => [bug.bug_id, bug]));
+        this.bug_history = Array.from(json.bug_history);
         this.loggedUser = null;
         this.save();
         
+    }
+    static saveToJson(){
+        return {
+            users: [...API.users.values()],
+            testers: [...API.testers.values()],
+            developers: [...API.developers.values()],
+            managers: [...API.managers.values()],
+            projects: [...API.projects.values()],
+            developersProjects: [...API.developersProjects.values()],
+            testersProjects: [...API.testersProjects.values()],
+            bugs: [...API.bugs.values()],
+            bug_history: [...API.bug_history],
+        };
     }
 
 

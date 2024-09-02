@@ -13,6 +13,16 @@
     color: #2563eb;
 }
 
+.register-container button{
+    width: 100%;
+    padding: 10px;
+    background-color: #2f54eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+}
 .input-group {
     margin-bottom: 15px;
 }

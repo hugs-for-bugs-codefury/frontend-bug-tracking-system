@@ -210,5 +210,61 @@
       "created_by": 4,
       "assigned_to": 4
     }
+  ],
+  "bug_history":[
+    {
+      "bug_id": 1,
+      "history_id": 1,
+      "actor":3,
+      "action":"reported",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 1,
+      "actor":2,
+      "action":"assigned",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 2,
+      "actor":5,
+      "action":"reported",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },{
+      "bug_id": 2,
+      "actor":2,
+      "action":"assigned",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },{
+      "bug_id": 2,
+      "actor":4,
+      "action":"closed",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 3,
+      "actor":7,
+      "action":"reported",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 3,
+      "actor":2,
+      "action":"assigned",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 4,
+      "actor":9,
+      "action":"reported",
+      "timestamp":"2024-08-15T10:30:00Z"
+    },
+    {
+      "bug_id": 4,
+      "actor":2,
+      "action":"assigned",
+      "timestamp":"2024-08-15T10:30:00Z"
+    }
+
   ]
 }

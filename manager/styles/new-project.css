@@ -1,41 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-}
 
-header {
-    display: flex;
-    justify-content: space-between;
-}
-
-.user-info {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    float: right;
-    margin-top: 3px;
-    display: flex;
-    justify-content: space-between;
-    
-}
-.user-info span{
-    padding-left:1rem;
-}
-
-
-main {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
 
 .create-project {
-    width: 50%;
+    max-width: calc(min(100%, 700px));
     background-color: #fff;
     padding: 3rem;
-    margin-top: 3rem;
+    margin: 2em auto;
+    margin-bottom: 4em;
+    
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;

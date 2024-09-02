@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   developers.forEach((developer) => {
     developersCheckList.innerHTML += `
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="${developer.developer_id}" id="dev-${developer.developer_id}"/>
+            <div class=" d-flex flex-row align-items-center gap-1  bg-secondary-subtle rounded-2 px-2 pb-1">
+                <input class="form-check-input " type="checkbox" value="${developer.developer_id}" id="dev-${developer.developer_id}"/>
                 <label class="form-check-label" for="dev-${developer.developer_id}">
                     ${developer.name}
                 </label>
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   testers.forEach((tester) => {
     testersCheckList.innerHTML += `
-            <div class="form-check">
+            <div class=" d-flex flex-row align-items-center gap-1  bg-secondary-subtle rounded-2 px-2 pb-1">
                 <input class="form-check-input" type="checkbox" value="${tester.tester_id}" id="tester-${tester.tester_id}"/>
                 <label class="form-check-label" for="tester-${tester.tester_id}">
                     ${tester.name}
