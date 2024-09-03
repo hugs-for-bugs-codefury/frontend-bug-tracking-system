@@ -42,8 +42,8 @@ document.addEventListener("DOMContentLoaded", function () {
                   bug.description
                 }</p>
                </td>
+               <td>${bug_severity_text[bug.severity]}</td>
                 <td>${bug.status == "open" ? "Open" : "Closed"}</td>
-                <td>${bug_severity_text[bug.severity]}</td>
         
             `;
       bugTable.appendChild(row);
