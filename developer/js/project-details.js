@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td >
                 <p class="text-truncate" style="max-width:30vw"> ${bug.description}</p>
                </td>
+               <td>${bug_severity_text[bug.severity]}</td>
                 <td>${bug.status=="open"?"Open":"Closed"}</td>
-                <td>${bug_severity_text[bug.severity]}</td>
         
                 <td>${API.getDeveloperByDeveloperId(bug.assigned_to).name}</td>
                 <td ">
